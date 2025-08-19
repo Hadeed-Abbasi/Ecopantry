@@ -1,0 +1,200 @@
+:root {
+    --primary: #4CAF50;
+    --secondary: #81C784;
+    --background: #f5f5f5;
+    --text-dark: #333;
+    --text-light: #f5f5f5;
+    --success: #43A047;
+    --danger: #E53935;
+    --warning: #FFB300;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary);
+    padding: 0.5rem;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    background-color: var(--primary);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--success);
+}
+
+.btn-danger {
+    background-color: var(--danger);
+}
+
+.btn-danger:hover {
+    background-color: #C62828;
+}
+
+form {
+    display: grid;
+    gap: 1rem;
+}
+
+input, select, textarea {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.alert {
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    background-color: #C8E6C9;
+    color: var(--success);
+}
+
+.alert-danger {
+    background-color: #FFCDD2;
+    color: var(--danger);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.expiring {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.chart-container {
+    height: 200px;
+    margin: 1rem 0;
+}
+
+.eco-badge {
+    display: inline-block;
+    background-color: var(--success);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.sustainability-tip {
+    background-color: #E8F5E9;
+    border-left: 4px solid var(--primary);
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.progress-container {
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 0.8rem;
+    line-height: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: var(--text-light);
+    margin-top: 2rem;
+}

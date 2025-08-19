@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPantry - Reduce Food Waste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><span style="color:#E8F5E9">Eco</span>Pantry</h1>
+        <p>Track your food. Reduce your waste. Save the planet.</p>
+    </header>
+    
+    <nav>
+        <a href="#" class="nav-link active" data-tab="dashboard">Dashboard</a>
+        <a href="#" class="nav-link" data-tab="pantry">My Pantry</a>
+        <a href="#" class="nav-link" data-tab="waste">Log Waste</a>
+        <a href="#" class="nav-link" data-tab="recipes">Recipes</a>
+        <a href="#" class="nav-link" data-tab="reports">Eco Reports</a>
+    </nav>
+    
+    <main>
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <h2>Sustainability Dashboard</h2>
+            <div id="alerts"></div>
+            
+            <div class="dashboard">
+                <div class="card">
+                    <h3>Food Waste Summary</h3>
+                    <div id="waste-summary">Loading...</div>
+                    <div class="chart-container" id="waste-chart"></div>
+                </div>
+                
+                <div class="card">
+                    <h3>Sustainability Status</h3>
+                    <div id="eco-rank">Calculating your eco rank...</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="eco-progress" style="width: 0%">0%</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Expiring Soon</h3>
+                    <div id="expiring-items">Loading...</div>
+                </div>
+                
+                <div class="card">
+                    <h3>Meal Suggestions</h3>
+                    <div id="recipe-suggestions">Loading...</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Eco Tips</h3>
+                <div id="eco-tips">
+                    <div class="sustainability-tip">Store leafy greens with a paper towel to absorb moisture and keep them fresh longer.</div>
+                    <div class="sustainability-tip">Freeze overripe bananas for smoothies or banana bread!</div>
+                    <div class="sustainability-tip">Create a "Eat First" section in your fridge for items that need to be used soon.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pantry Tab -->
+        <div id="pantry" class="tab-content">
+            <h2>My Pantry</h2>
+            
+            <div class="card">
+                <h3>Add New Item</h3>
+                <form id="add-item-form">
+                    <div>
+                        <input type="text" id="item-name" placeholder="Item name" required>
+                    </div>
+                    <div>
+                        <input type="number" id="item-quantity" placeholder="Quantity" min="1" required>
+                        <select id="item-unit">
+                            <option value="pcs">pieces</option>
+                            <option value="kg">kg</option>
+                            <option value="g">g</option>
+                            <option value="l">liters</option>
+                            <option value="ml">ml</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="item-category">Category:</label>
+                        <select id="item-category">
+                            <option value="vegetable">Vegetable</option>
+                            <option value="fruit">Fruit</option>
+                            <option value="dairy">Dairy</option>
+                            <option value="grain">Grain</option>
+                            <option value="protein">Protein</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="item-expiry">Expiry Date:</label>
+                        <input type="date" id="item-expiry" required>
+                    </div>
+                    <button type="submit" class="btn">Add Item</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h3>My Inventory</h3>
+                <div id="pantry-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Category</th>
+                                <th>Expiry Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pantry-items">
+                            <tr>
+                                <td colspan="5">Loading items...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Waste Log Tab -->
+        <div id="waste" class="tab-content">
+            <h2>Food Waste Log</h2>
+            
+            <div class="card">
+                <h3>Log Wasted Food</h3>
+                <form id="log-waste-form">
+                    <div>
+                        <input type="text" id="waste-name" placeholder="Item name" required>
+                    </div>
+                    <div>
+                        <input type="number" id="waste-weight" placeholder="Weight (kg)" step="0.01" min="0.01" required>
+                    </div>
+                    <div>
+                        <label for="waste-type">Type:</label>
+                        <select id="waste-type">
+                            <option value="vegetable">Vegetable</option>
+                            <option value="fruit">Fruit</option>
+                            <option value="dairy">Dairy</option>
+                            <option value="grain">Grain</option>
+                            <option value="meat">Meat</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="waste-reason">Reason:</label>
+                        <select id="waste-reason">
+                            <option value="expired">Expired</option>
+                            <option value="spoiled">Spoiled</option>
+                            <option value="leftover">Leftover</option>
+                            <option value="overcooked">Overcooked</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Log Waste</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h3>Waste History</h3>
+                <div id="waste-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Item</th>
+                                <th>Weight (kg)</th>
+                                <th>Type</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody id="waste-items">
+                            <tr>
+                                <td colspan="5">Loading waste history...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recipes Tab -->
+        <div id="recipes" class="tab-content">
+            <h2>Recipe Suggestions</h2>
+            
+            <div class="card">
+                <h3>Recipes Based on Your Pantry</h3>
+                <div id="recipe-list">Loading recipe suggestions...</div>
+            </div>
+        </div>
+        
+        <!-- Eco Reports Tab -->
+        <div id="reports" class="tab-content">
+            <h2>Sustainability Reports</h2>
+            
+            <div class="card">
+                <h3>Monthly Summary</h3>
+                <div id="monthly-summary">Loading your eco reports...</div>
+            </div>
+            
+            <div class="card">
+                <h3>Environmental Impact</h3>
+                <div id="env-impact">Calculating your environmental impact...</div>
+            </div>
+            
+            <div class="card">
+                <h3>Waste Composition</h3>
+                <div class="chart-container" id="waste-composition-chart"></div>
+            </div>
+            
+            <div class="card">
+                <h3>Personalized Tips</h3>
+                <div id="personalized-tips">
+                    Analyzing your habits to provide personalized tips...
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 EcoPantry - Making sustainability delicious!</p>
+    </footer>
+    
+    <script src="script.js" defer></script>
+</body>
+</html>
